@@ -1,3 +1,4 @@
+const { default: ColumnGroup } = require('antd/lib/table/ColumnGroup');
 const fs = require('fs');
 const visits = JSON.parse(fs.readFileSync('./csv-Nurse.json'));
 const tRows = JSON.parse(fs.readFileSync('./data.json'));
@@ -86,13 +87,12 @@ visits.forEach((visit, i) => {
               winningSuburb = suburb;//最终整到的
               // console.log("should have th" + winningSuburb);
               highestCount = nameCount[suburb];
-            } 
-            else if (nameCount[suburb] === highestCount) {
-              //the count is the same and no main area suburb name contain the suburb nurse insert
-              // console.log(nameCount);
-              winningSuburb = 'need to check';
-              //去除这个部分就能强制被定义？？
             }
+            // else if (nameCount[suburb] === highestCount) {
+            //   //the count is the same and no main area suburb name contain the suburb nurse insert
+            //   winningSuburb = 'need to check';
+            //   //去除这个部分就能强制被定义？？  因为就是直接找highestCount数字最大，且数字会有多个相同，suburb中的倒数第二个。
+            // }
           });
 
           if (winningSuburb !== '') {
@@ -121,9 +121,9 @@ visits.forEach((visit, i) => {
 );
 console.log("these postcodes array has no no winning suburb name ，because the count is the same and no main area suburb name contain the suburb nurse insert" + unnamedPostcodes);
 console.log("number of postcodes has no winning suburb name is: " + unnamedPostcodes.length);
-console.log(names);
-
-
+// console.log(names);
+const jsonweneed = JSON.stringify(names)
+console.log(jsonweneed)
 
 
 

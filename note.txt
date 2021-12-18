@@ -1,0 +1,16 @@
+第一轮就是那个lastopostcode为0的情况写在match。js里面了
+第二轮在这lastpostcode已经在最后三行更新成
+
+
+第32行
+lastpostcode是810
+j=0;i<7；J++{
+    这里头j一直循环到7为止
+    所以我就搞到了完整的属于postcode810
+    的nameCount
+
+    注意：
+    i=7确实是下一个postcode的index但是这里意味着咱们只循环到6！！！
+    也就是最后一个810的i， i.e. 6
+    因为这里你找的是visits【j】所以你可以找到上一个postcode的组，并且进行循环
+}
